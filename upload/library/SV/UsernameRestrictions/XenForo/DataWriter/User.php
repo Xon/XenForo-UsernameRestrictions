@@ -59,7 +59,7 @@ class SV_UsernameRestrictions_XenForo_DataWriter_User extends XFCP_SV_UsernameRe
             // if this matches, then \v isn't known (appears to be PCRE < 7.2) so don't strip
             if (!preg_match('/\v/', 'v'))
             {
-                $newName = preg_replace('/\v+/u', ' ', $username);
+                $newName = preg_replace('/\v+/u', ' ', $text);
                 if (is_string($newName))
                 {
                     $text = $newName;

@@ -14,6 +14,12 @@
   <email_template_modifications/>
   <optiongroups>
     <group group_id="SV_UsernameRestrictions" display_order="111" debug_only="0"/>
+    <option option_id="sv_ur_apply_to_admins" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SV_UsernameRestrictions" display_order="100"/>
+    </option>
     <option option_id="sv_ur_block_group_subset" edit_format="onoff" data_type="boolean" can_backup="1">
       <default_value>1</default_value>
       <edit_format_params></edit_format_params>
@@ -30,6 +36,8 @@
   <phrases>
     <phrase title="option_group_SV_UsernameRestrictions" version_id="10000" version_string="1.0.0"><![CDATA[Username Restrictions]]></phrase>
     <phrase title="option_group_SV_UsernameRestrictions_description" version_id="10000" version_string="1.0.0"><![CDATA[Imposes additional restrictions on usernames. Prevents user sign ups to select usernames which match user groups]]></phrase>
+    <phrase title="option_sv_ur_apply_to_admins" version_id="10000" version_string="1.0.0"><![CDATA[Apply extra username restrictions to administrators]]></phrase>
+    <phrase title="option_sv_ur_apply_to_admins_explain" version_id="10000" version_string="1.0.0"><![CDATA[Forces all renames to obey all additional restrictions on usernames]]></phrase>
     <phrase title="option_sv_ur_block_group_subset" version_id="10000" version_string="1.0.0"><![CDATA[Block usernames as a subset of a user group name]]></phrase>
     <phrase title="option_sv_ur_block_group_subset_explain" version_id="10000" version_string="1.0.0"><![CDATA[Prevents a username which is a subset of any user group from being picked by users]]></phrase>
   </phrases>

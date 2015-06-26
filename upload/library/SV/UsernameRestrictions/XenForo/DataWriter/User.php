@@ -5,12 +5,17 @@ class SV_UsernameRestrictions_XenForo_DataWriter_User extends XFCP_SV_UsernameRe
     protected function _verifyUsername(&$username)
     {
         $ret = parent::_verifyUsername($username);
-        if (empty($ret) || $this->getOption(self::OPTION_ADMIN_EDIT))
+        if (empty($ret))
         {
             return $ret;
         }
 
         $options = XenForo_Application::getOptions();
+        if (!$options->sv_ur_apply_to_admins && $this->getOption(self::OPTION_ADMIN_EDIT))
+        {
+            return $ret;
+        }
+
         $blockSubset = $options->sv_ur_block_group_subset;
         $username_lowercase = utf8_strtolower($username);
         $groups = $this->_getUserGroupModel()->getAllUserGroups();

@@ -5,7 +5,7 @@ class SV_UsernameRestrictions_XenForo_DataWriter_User extends XFCP_SV_UsernameRe
     protected function _verifyUsername(&$username)
     {
         $ret = parent::_verifyUsername($username);
-        if (empty($ret))
+        if (empty($ret) || empty($username))
         {
             return $ret;
         }

@@ -10,6 +10,13 @@ class SV_UsernameRestrictions_XenForo_DataWriter_User extends XFCP_SV_UsernameRe
             return $ret;
         }
 
+        // unconditionally prevent username's starting with [, as this breaks username tagging
+        if (substr($username, 0, 1) == '[')
+        {
+            $this->error(new XenForo_Phrase('please_enter_another_name_required_format'), 'username');
+            return false;
+        }
+
         $options = XenForo_Application::getOptions();
         if (!$options->sv_ur_apply_to_admins && $this->getOption(self::OPTION_ADMIN_EDIT))
         {
